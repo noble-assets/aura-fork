@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package aura.blocklist.v1;
 
+import "amino/amino.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "cosmos/query/v1/query.proto";
 import "google/api/annotations.proto";
@@ -30,8 +31,8 @@ service Query {
 message QueryOwner {}
 
 message QueryOwnerResponse {
-  string owner = 1;
-  string pending_owner = 2;
+  string owner = 1 [(amino.dont_omitempty) = true];
+  string pending_owner = 2 [(amino.dont_omitempty) = true];
 }
 
 message QueryAddresses {

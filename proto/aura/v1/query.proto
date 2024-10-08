@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package aura.v1;
 
+import "amino/amino.proto";
 import "aura/v1/genesis.proto";
 import "cosmos/query/v1/query.proto";
 import "gogoproto/gogo.proto";
@@ -55,14 +56,14 @@ message QueryDenomResponse {
 message QueryPaused {}
 
 message QueryPausedResponse {
-  bool paused = 1;
+  bool paused = 1 [(amino.dont_omitempty) = true];
 }
 
 message QueryOwner {}
 
 message QueryOwnerResponse {
-  string owner = 1;
-  string pending_owner = 2;
+  string owner = 1 [(amino.dont_omitempty) = true];
+  string pending_owner = 2 [(amino.dont_omitempty) = true];
 }
 
 message QueryBurners {}
